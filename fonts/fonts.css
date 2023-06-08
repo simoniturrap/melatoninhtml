@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'circular_stdblack';
+    src: url('circularstd-black-webfont.woff2') format('woff2'),
+         url('circularstd-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'circular_stdbold';
+    src: url('circularstd-bold-webfont.woff2') format('woff2'),
+         url('circularstd-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'circular_stdbook';
+    src: url('circularstd-book-webfont.woff2') format('woff2'),
+         url('circularstd-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'circular_stdmedium';
+    src: url('circularstd-medium-webfont.woff2') format('woff2'),
+         url('circularstd-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'circular_airlight';
+    src: url('circularair-light-webfont.woff2') format('woff2'),
+         url('circularair-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'rhymesdisplayregular';
+  src: url('rhymesdisplayregular.woff2') format('woff2'),
+       url('rhymesdisplayregular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'rhymesdisplayitalic';
+  src: url('rhymesdisplayitalic.woff2') format('woff2'),
+       url('rhymesdisplayitalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
