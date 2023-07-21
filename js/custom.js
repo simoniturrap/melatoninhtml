@@ -248,13 +248,13 @@ if (document.querySelector(".scroll-reveal")) {
   reveals.forEach((reveal) => {
     gsap.from(reveal, {
       opacity: 0,
-      duration: 0.8,
-      delay: 0.2,
+      duration: 1,
       scrollTrigger: {
         scroller: ".scrollContainer",
         trigger: reveal,
-        start: "top 65%",
+        start: "top 78%",
         ease: "power2.outIn",
+        //markers: true,
       },
     });
   });
@@ -420,6 +420,9 @@ if (document.querySelector(".default")) {
   });
 }
 
+
+//Portafolio Page
+
 if (document.querySelector("#portafolio-page")) {
   const contentHorizontal = document.querySelector(".content-horizontal");
   const item = document.querySelectorAll(".item");
@@ -449,5 +452,34 @@ if (document.querySelector("#portafolio-page")) {
       end: countImage * imageWidth + window.innerHeight + window.innerHeight,
       scrub: true,
     },
+  });
+}
+
+//Animations Contact
+
+if( document.querySelector('#contacto') ){
+  const highlight = document.querySelector('.contact-me');
+  const email = document.querySelector('.email-me');
+
+  gsap.set( highlight, {
+    x: 50,
+  });
+
+  gsap.to( highlight,{
+    x: 0,
+    duration: 0.5,
+    delay: 0.7,
+    autoAlpha: 1,
+  });
+
+  gsap.set( email, {
+    x: 50,
+  });
+
+  gsap.to( email,{
+    x: 0,
+    duration: 0.5,
+    delay: 1,
+    autoAlpha: 1,
   });
 }
