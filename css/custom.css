@@ -1,5 +1,5 @@
 :root{
-  --dark-grey: #000000;
+  --dark-grey: #0e0e0e;
   --dark-grey-rgba: rgba(19,20,20, 0.9);
   --dark-grey-2: #0d0e0e;
   --grey: #696964;
@@ -104,12 +104,14 @@ a{
 }
 
 .panel{
-  position: fixed;
-  z-index: 6000;
-  width: 100%;
+  position: absolute;
+  z-index: 7000;
+  top: 0;
+  left: 0;
   height: 100%;
-  background-color: var(--white);
+  width: 100%;
   transform-origin: bottom;
+  background-color: var(--black);
 }
 
 .cursor-dot, .cursor-dot-outline {
@@ -196,6 +198,155 @@ a{
 }
 
 /***************************************
+- MENU
+/**************************************/
+
+#menu{
+  position: absolute;
+  z-index: 6000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: bottom;
+  background-color: var(--black);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.opacity{
+  height: 100%; 
+}
+
+#menu nav{
+  position: absolute;
+  left: 0vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#menu nav li{
+  position: relative;
+  opacity: 0;
+  left: 25vw;
+  transition: all 0.4s ease;
+}
+
+#menu .animate{
+  left: 20vw;
+  opacity: 1;
+}
+
+#menu nav:hover .link-blur-1:not(:hover) {
+  opacity: 0.8;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+}
+
+#menu nav a:hover{
+  color: var(--white);
+}
+
+#menu nav li a{
+  font: 64px var(--font-serif);
+  margin: 0px 0px 0px 30px;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#menu nav li a::after{
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 2px;
+  background-color: var(--white);
+  left: -70px;
+  top: 44px;
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#menu nav li  a:hover::after{
+  opacity: 1;
+  top: 44px;
+  left: -50px
+}
+
+#menu nav li span{
+  position: relative;
+  font: 20px var(--font-serif-italic);
+  top: -10px;
+  left: 50px;
+  color: var(--grey);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+#menu nav li:hover span{
+  left: 20px;
+  opacity: 1;
+}
+
+/* STACK */
+
+#icon-menu{
+  position: absolute;
+  z-index: 8000;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+#icon-menu .stack{
+  width: 22px;
+  height: 2px;
+  background-color: var(--white);
+  position: relative;
+  transition: all 0.4s ease;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+#icon-menu .stack:nth-child(1){
+  top: 0px;
+}
+
+#icon-menu .stack:nth-child(2){
+  top: 5px;
+}
+
+#icon-menu .stack:nth-child(3){
+  top: 10px;
+}
+
+#icon-menu:hover .stack:nth-child(2){
+  width: 32px;
+}
+
+#icon-menu.cross .stack:nth-child(1){
+  transform: rotate(45deg);
+  top: 6px;
+  left: 4px;
+}
+
+#icon-menu.cross .stack:nth-child(2){
+  width: 0px;
+}
+
+#icon-menu.cross .stack:nth-child(3){
+  transform: rotate(-45deg);
+  top: 2px;
+  left: 4px;
+}
+
+/***************************************
 - NAVS
 /**************************************/
 
@@ -203,14 +354,15 @@ a{
   width: 100%;
   height: 50px;
   position: fixed;
-  z-index: 5000;
+  z-index: 6000;
   will-change: transform;
   mix-blend-mode: difference;
 }
 
 #nav-principal .logo{
-  padding: 7px 0px 0px 0px;
+  padding: 15px 0px 0px 0px;
   width: 40%;
+  position: absolute;
 }
 
 #nav-principal .logo a{
@@ -315,7 +467,7 @@ a{
   position: fixed;
   bottom: 20px;
   left: 20px;
-  z-index: 3000;
+  z-index: 7000;
   will-change: transform;
 
   & nav:hover .link-blur-3:not(:hover) {
@@ -350,7 +502,14 @@ a{
   position: relative;
   width: 100%;
   height: 90vh;
-  padding: 40vh 0px 0px 0px;
+}
+
+#main .text-reveal{
+  position: absolute;
+  z-index: 1000;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #main .text-reveal span{
@@ -384,7 +543,8 @@ a{
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding-top: 180px;
+  top: 950px;
+  position: relative;
   text-align: center;
 }
 
@@ -410,6 +570,21 @@ a{
   background: var(--dark-grey);
 }
 
+#main .home-image{
+  position: absolute;
+  top: 0vh;
+  height: 100vh;
+  z-index: -100;
+  overflow: hidden;
+  right: 0px;
+}
+
+#main .home-image img{
+  height: 100%;
+  filter: saturate(10%);
+  opacity: 0.15;
+}
+
 /***************************************
 - HOME-PORTAFOLIO
 /**************************************/
@@ -417,8 +592,8 @@ a{
 #home-portafolio{
   position: relative;
   width: 100%;
-  height: 1600px;
-  padding: 300px 0px 0px 0px;
+  height: 1700px;
+  padding: 400px 0px 0px 0px;
 }
     
 #home-portafolio h1{
@@ -544,8 +719,7 @@ a{
   z-index: -9999;
 }
 
-#more-work 
-.more-work .menu .image {
+#more-work .more-work .menu .image {
   position: absolute;
   pointer-events: none;
   width: 0px;
@@ -628,6 +802,47 @@ a{
 #portafolio-page .item{
   flex: 0 0 auto; 
   position: relative;
+}
+
+#portafolio-page .start{
+  color: var(--white);
+  font: 14px var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+#portafolio-page .end{
+  color: var(--white);
+  font: 14px var(--font-main);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: left;
+  display: flex;
+  position: relative;
+  transition: 0.5s;
+}
+
+#portafolio-page .end::after {
+  position: absolute;
+  content: "";
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+#portafolio-page .end:hover {
+  color: var(--white);
+}
+
+#portafolio-page .end:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 #portafolio-page .item p{
@@ -809,29 +1024,31 @@ a{
   display: block;
   max-width: 100%;
   height: auto;
+  padding: 5px;
   /* filter: saturate(0%); */
-  opacity: 0.7;
   /* transition: filter 0.2s ease-in; */
+  transition: all 0.3s ease;
 }
 
 #album-page img:hover{
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .simple-lightbox{
-  z-index: 7000;
+  z-index: 8000;
   color: var(--white);
 }
 
 
 .simple-lightbox{
-  z-index: 7000;
+  z-index: 8001;
   color: var(--white);
 }
 
 .sl-overlay{
   background-color: var(--dark-grey);
-  z-index: 6000;
+  z-index: 8000;
+  opacity: 0.95 !important;
 }
 
 .sl-wrapper .sl-close,
