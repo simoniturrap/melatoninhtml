@@ -1,14 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-//Animate Panel
-if (document.querySelector(".panel")) {
-  gsap.to(".panel", {
-    scaleY: 0,
-    duration: 1.65,
-    ease: "power4.inOut",
-  });
-}
-
 //Make a Custom Cursor
 var cursor = {
   delay: 8,
@@ -110,6 +101,15 @@ var cursor = {
   },
 };
 cursor.init();
+
+//Animate Panel
+if (document.querySelector(".panel")) {
+  gsap.to(".panel", {
+    scaleY: 0,
+    duration: 1.65,
+    ease: "power4.inOut",
+  });
+}
 
 //Locomotive + Scrolltrigger
 
