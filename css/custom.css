@@ -295,7 +295,7 @@ a{
 /* STACK */
 
 #icon-menu{
-  position: absolute;
+  position: fixed;
   z-index: 8000;
   top: 30px;
   right: 30px;
@@ -1032,6 +1032,14 @@ a{
 
   /* NAVS MENU PRINCIPAL */
 
+ #nav-principal .logo a{
+   color: var(--white);
+   font: 1.8em var(--font-serif);
+   letter-spacing: 2px;
+   text-transform: capitalize !important;
+ }
+ 
+
   #nav-principal .logo {
     margin-left: 20px;
   }
@@ -1060,7 +1068,7 @@ a{
   }
 
   #main .parent span{
-    font-size: 1.8em;
+    font-size: 1.3em;
   }
 
   /* Home Portafolio */
